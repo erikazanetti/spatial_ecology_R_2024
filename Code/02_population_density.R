@@ -24,13 +24,15 @@ plot(bei, pch=19, cex=0.5)
 bei.extra
 plot(bei.extra) # it shows me two images, one is elevation and one is graduation
 
-# extracting data
+# extracting data, first method:
 elevation <- bei.extra$elev
 plot(elevation) # now i only see elevation
 
+# second method to extract elements
 elevation <- bei.extra[[1]]
+plot(elevation)
 
-# density map starting from points
+# density map starting from points, passing from points to a countinuous surface
 densitymap <- density(bei)
 
 plot(densitymap)
@@ -47,7 +49,7 @@ plot(elevation2)
 plot(densitymap)
 
 # let's go back to the original plot(s)
-dev.off()
+dev.off() # this is to clear off all graphs
 plot(elevation2)
 
 # changing colors to maps
