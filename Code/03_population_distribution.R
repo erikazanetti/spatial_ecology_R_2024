@@ -1,4 +1,8 @@
-install.packages("sdm")
+# topics:
+
+
+
+install.packages("sdm") # species distribution modelling
 install.packages("terra")
 
 library(sdm)
