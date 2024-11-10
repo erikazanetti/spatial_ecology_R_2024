@@ -1,24 +1,32 @@
 # how to calculate the density of individuals in a population
+# topics:
+# using a dataset
+# extracting data
+# plotting a density map
+# plotting the maps one beside the other
+# changing colors to maps
+# increase the gradient
 
-# installing the spatstat package
+# A package is needed for point pattern analysis, installing the spatstat package
 install.packages("spatstat")
 
 # Recalling the package
 library(spatstat)
 
-# dataset
+# let's use the bei dataset:
 bei
 
 plot(bei)
 plot(bei, pch=19)
 plot(bei, pch=19, cex=0.5)
 
+# additional datasets
 bei.extra
-plot(bei.extra)
+plot(bei.extra) # it shows me two images, one is elevation and one is graduation
 
 # extracting data
 elevation <- bei.extra$elev
-plot(elevation)
+plot(elevation) # now i only see elevation
 
 elevation <- bei.extra[[1]]
 
@@ -54,12 +62,12 @@ plot(densitymap,col=cl)
 cl <- colorRampPalette(c("red", "orange", "yellow"))(100)
 plot(densitymap,col=cl)
 
-# search your browser for "colors in R"
+# search in your browser for "colors in R"
 
 # Exercise: change the color ramp palette using different colors
 cl <- colorRampPalette (c("lightpink", "plum3", "mistyrose2"))(100)
 
-# Exrcise: build a multiframe and plot the densitymap with two different color ramp palettes one beside the other
+# Exercise: build a multiframe and plot the densitymap with two different color ramp palettes one beside the other
 par(mfrow=c(1,2))
 
 cln <- colorRampPalette(c("purple1", "orchid2", "palegreen3", "paleturquoise"))(100)
