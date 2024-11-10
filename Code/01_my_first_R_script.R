@@ -20,7 +20,7 @@ sonia + lea
 sonia ^ lea
 
 # arrey
-tommaso <- c(10, 20, 30, 50, 70) # this is an arrey
+tommaso <- c(10, 20, 30, 50, 70) # this is an arrey. An arrey is a series of data. the function c is cramping all together the data
 erika <- c(1, 3, 5, 6, 7, 9)
 
 # function(): plot()
