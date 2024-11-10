@@ -7,7 +7,7 @@
 # changing colors to maps
 # increase the gradient
 
-# A package is needed for point pattern analysis, installing the spatstat package
+# A package is needed for point pattern analysis, installing the spatstat package. We use spatstat package to deal with population ecology
 install.packages("spatstat")
 
 # Recalling the package
@@ -23,6 +23,8 @@ plot(bei, pch=19, cex=0.5)
 # additional datasets
 bei.extra
 plot(bei.extra) # it shows me two images, one is elevation and one is graduation
+# bei is a vector that is composed by points ; bei.extra is composed by pixels that together create a raster
+
 
 # extracting data, first method:
 elevation <- bei.extra$elev
@@ -53,7 +55,7 @@ dev.off() # this is to clear off all graphs
 plot(elevation2)
 
 # changing colors to maps
-cl <- colorRampPalette(c("red", "orange", "yellow"))(3)
+cl <- colorRampPalette(c("red", "orange", "yellow"))(3) # dove 3 è il gradiente, aumentandolo diventa più sfumato
 plot(densitymap,col=cl)
 
 # increase the gradient
