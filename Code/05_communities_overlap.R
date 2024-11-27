@@ -44,9 +44,9 @@ overlapPlot(tigertime, macaquetime)
 # we see the 2 graphs overlapping to see when they stay in the same place at the same time, with multivar we have a spatial analysis, with overlap we analize the temporal dimension
 
 
-#----- SQL
-macaque <- kerinci[kerinci$Sps=="macaque",]
+#----- 
+macaque <- kerinci[kerinci$Sps=="macaque",] 
 summary(macaque)
-
+# "==" means equal, and "!=" means not equal (cioè punto esclamativo assieme a uguale)
 nomacaque <- kerinci[kerinci$Sps!="macaque",]
 summary(nomacaque)
