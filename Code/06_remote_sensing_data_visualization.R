@@ -1,3 +1,7 @@
+# REMOTE SENSING: a sensor takes a photo from remote reception
+# spectral species: every species over the planet can be recognized thanks to the amount of light reflected
+# we transform the information from numbers (reflectances, how much an object reflects light) into colours
+
 # reflectance
 # the radiation we see is quite narrow (visible part of the spectrum), there are additional wave lenghts that might use it. different animals can use different waves lenght
 # we take an instrument (called APEX), where there are several sensors that can sense different wavelenghts. you mount APEX on top of an aircraft, satellite...
@@ -18,14 +22,23 @@ library(devtools)
 library(imageRy)
 library(terra)
 
-im.list()
+im.list() # shows a list of all the data in the function
+# in the data we find sentinel.dolomites.b2.tif, that is data in the package provided for sentinels data of the dolomites. sentinel datas are coming from programm like Copernicus that provides data from all planet
+# inside every instrument (like sentinel-2 satellite) there may be several sensors and each sensor is recording the landdscape in a certain wavelenght (red, green, blue)
+# this wavelenghts are recorded as layers called bands. so bands are how to see the landscape in certain way -> Sentinel-2 bands is the name of the satellite
+# among the data we have sentinel.dolomites.b2 (b2 = band 2 -> the blue -> we're working at wavelenght 490 nm)
 
 # importing data
-b2 <- im.import("sentinel.dolomites.b2.tif")
+b2 <- im.import("sentinel.dolomites.b2.tif") # the image is made from sensors recording the blue and all the objects reflecting the blue are in this image with this colorRampPalette in yellow and green and the objects absorbing the blue light are in dark blue
 
-# visualizing data
+# let's change the colorRampPalette
 cl <- colorRampPalette(c("black", "grey", "light grey")) (100)
 plot(b2, col=cl)
+
+# what is reflectance: how much a signal is reflected and also absorbed at the same moment
+# presentation continuous_vs_discontinuous_monitoring:
+# we use a passive sensor: a satellite recording the reflectance of object based on their external energy (the sun: sunlight passes the atmosphere, passes an object and comes back to the satellite); active sensors (laser, radar) are emicting a signal and receving back an output
+# incident radiant flux = energy coming on top of the object. Part of this radiation is reflect (reflected radiant flux). The reflectance is an index, ranging from 0 to 1, of reflected radiation given a certain amount of incident radiation 
 
 # green data
 b3 <- im.import("sentinel.dolomites.b3.tif")
