@@ -31,7 +31,7 @@ pres <- rana[rana$Occurrence==1] # in sequel language (used here to select only 
 pres
 pres$Occurrence # and in fact now all occurrences are 1
 
-# exercise: plot presences and absences, one beside the other
+# exercise: plot rana and presences, one beside the other
 par(mfrow=c(1,2))
 plot(rana)
 plot(pres)
@@ -60,7 +60,7 @@ points(abse, col="red", pch=19, cex=2)
 elev <- system.file("external/elevation.asc", package="sdm")
 elev
 
-elevmap <- rast(elev)
+elevmap <- rast(elev) # now we want to see the map of elevation
 elevmap
 plot(elevmap)
 
