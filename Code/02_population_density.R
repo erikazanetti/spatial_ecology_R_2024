@@ -17,8 +17,8 @@ library(spatstat)
 bei
 
 plot(bei)
-plot(bei, pch=19)
-plot(bei, pch=19, cex=0.5)
+plot(bei, pch=19) # pch -> simbolo diverso
+plot(bei, pch=19, cex=0.5) # cex -> puntini di dimensione 0.5
 
 # additional datasets
 bei.extra
