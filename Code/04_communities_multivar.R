@@ -4,7 +4,7 @@
 # The multivariate analysis shows how much individuals/species are related to each other
 # We move from tables to graphs
 # We can create a graph in 3 dimensions, but when we have several plots we need more dimensions (impossible to represent graphically)
-# We can compact the data with PCA (principal component analysis, NON HO CAPITO COS'è)
+# We can compact the data with PCA (principal component analysis)
 # PCA helps to compact a multidimensional system in a system made by 2 dimensions (or from 2 to 1)
 
 # TOPICS:
