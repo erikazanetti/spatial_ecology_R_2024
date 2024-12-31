@@ -1,5 +1,7 @@
 # REMOTE SENSING: a sensor takes a photo from remote reception
-# spectral species: every species over the planet can be recognized thanks to the amount of light reflected
+# Take home message: we can make use of several bands together and see them in a new space in which additional bands not visible by human eyes can be used to plot the final sattelite images
+
+#spectral species: every species over the planet can be recognized thanks to the amount of light reflected
 # we transform the information from numbers (reflectances, how much an object reflects light) into colours
 
 # reflectance
@@ -107,27 +109,8 @@ im.plotRGB(sentstack, r=3, g=2, b=1) # we have 3 components (red, green, blue), 
 im.plotRGB(sentstack, r = 4, g = 3, b = 2) # false color image -> all vegetation becomes red because it's reflecting. If we use the visible it's showing us few infos, using the other colors of the infra-red we are adding more information from another part of the spectrum.
 # since we've put the NIR on top of the red component of the RGB, all the vegetation will become red, since it's reflected. 
 
-day2
+# Now let's try to pass the NIR in the green component, obtaining  another false colour image and everything that will reflect the NIR (mainly vegetation) will become green
+im.plotRGB(sentstack, r=3, g=4, b=2) # this is the same image as before, but previously the vegetation was red, while now it's green. Now urban areas and water are violet.
 
-library(terra)
-terra 1.7.83
-library(imageRy)
-im.list()
-
-# recall b2, b3, b4, b8
-
-b2 <- im.import("sentinel.dolomites.b2.tif")
-b3 <- im.import("sentinel.dolomites.b3.tif")
-b4 <- im.import("sentinel.dolomites.b4.tif")
-b8 <- im.import("sentinel.dolomites.b8.tif")
-sentstack <- c(b2,b3,b4,b8)
-plot(sentstack)
-
-# why we want to stack? vegetation is now represented by infrared beause vegetation reflects a lot in NIR. it's common to put NIR on top of red band of RGB
-im.plotRGB(sentstack, r=3, g=2, b=1) # RGB has 3 components but we have 4 bans. facciamo scorrere i nueri we get false colorus image so to add addittional information that our eyes cannot see 
-im.plotRGB(sentstack, r=3, g=3, b=2)
-im.plotRGB(sentstack, r=3, g=4, b=2) # let's try to put NIR on top of green band obtaining  another false colour image 
-
-# a NIR on top of blue band
-
-im.plotRGB(sentstack, r=3, g=2, b=4)
+# now let's try to put the NIR on top of the blue band, all the vegetation will become blue
+im.plotRGB(sentstack, r=3, g=2, b=4) # A nice component coming out once mounting this band in this manner is that bare soil and rock are becoming yellow 
