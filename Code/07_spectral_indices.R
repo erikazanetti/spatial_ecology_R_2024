@@ -46,47 +46,62 @@ im.plotRGB(m1992, r=1, g=2, b=3)
 im.plotRGB(m2006, r=1, g=2, b=3)
 
 # exercise: make a multiframe with 6 images in paiirs with NIR on the same component
-# first row: m1992 and m2006 with r= 1
-# second row: m1992 and m2006 with g= 1
-# third row: m1992 and m2006 with b= 1
+# first row: m1992 and m2006 with r=1 (NIR on top of red)
+# second row: m1992 and m2006 with g=1 (NIR on top of green)
+# third row: m1992 and m2006 with b=1 (NIR on top of blue)
 # 3 rows per 2 columns -> the important point as requested from the exercise is where you put the number 1 
 
 par(mfrow=c(3,2))
 im.plotRGB(m1992, r=1,g=2, b=3)
 im.plotRGB(m2006, r=1,g=2, b=3)
+
 im.plotRGB(m1992, r=2,g=1, b=3)
 im.plotRGB(m2006, r=2,g=1, b=3)
+
 im.plotRGB(m1992, r=2,g=3, b=1)
 im.plotRGB(m2006, r=2,g=3, b=1)
 
-# VEGETATION INDICES 
-# spectral signature -> several spectral bands. in case of healthy plants: reflects in NIR 100, red 10, we can mount this information to make a single index DVI (different vegetation index). DIV = NIR - red = 100-10 = 90 (DVI of the plant). imagine the plant is about to die, the plant will not absorb blue or red and reflectance will be high because cloroplasts don't work. so now NIR = 80, red = 20, DVI = NIR - red = 80-20 = 60. with two images u can calculate different DVIs
-# calculate DVI of 1992 and DVI o 2006
-# different vegetation index 1992
+# VEGETATION INDICES: SPECTRAL SIGNATURE, DVI
+# Spectral signature (presentation "remote sensing"): it is a graph of how vegetation (healthy or stressed vegetation) reacts to light. 
+# In case of healthy plants: absorbs blue and red, reflects green, reflects a lot of NIR.
+# When we have several bands instead of just 4, we will see that there are pics different from one species to the other: each species reflects in a different manner (that's why it's called spetral signature, like a fingerprint).
+# In case of a healthy plant: in the NIR it's reflecting a lot, let's say 100. In  red 10. We can mount this information to make a single index, called DVI (different vegetation index). 
+# DIV = NIR - red = 100 - 10 = 90 (DVI of the plant).
+# Imagine the plant is about to die, the phtosynthesis is going to stop (chloroplasts don't work anymore and don't absorb light), so the plant will not absorb anymore blue or red and reflectance will be higher.
+# So now NIR = 80, red = 20 -> DVI = NIR - red = 80 - 20 = 60.
+# So once the plant suffers (ex. for climate change), we will see a decrease in DVI.
 
-dvi1992 = m1992[[1]] - m1992[[2]] # the 1 is the NIR and the 2 is the red (band 1 = NIR, band 2=red, band 3=green)
+# With two images you can calculate different DVIs
+# We calculate the DVI of 1992 and DVI of 2006
+
+# DVI of 1992
+dvi1992 = m1992[[1]] - m1992[[2]] # the 1 is the NIR and the 2 is the red (band 1 = NIR, band 2 = red, band 3 = green). So we do NIR - red (this is called map algebra)  
 cl <- colorRampPalette(c("darkblue","yellow","red","black")) (100)
 plot(dvi1992, col=cl) # we see the dvi in 1992
 
-# let's see the same for 2006
-
+# DVI of 2006
 dvi2006=m2006[[1]]-m2006[[2]]
 plot(dvi2006, col=cl)
 
-# now plot in a mf
-
+# Now plot altogether in a multiframe
 par(mfrow=c(1,2))
 plot(dvi1992, col=cl)
 plot(dvi2006, col=cl)
 
-# so we saw the capability of satellite to calculate index and seeing the difference between two images in time. 
-# NDVI = normalize different vegetation index = same of DVI (NIR - RED) but also in denominator puts NIR+red. with NDVI you can compare every image from different ranges, it's always better to use NDVI instead on DVI, but if you have images from the same range you can use DVI
-# calcualte NDVI 1992 and 2006
+# VEGETATION INDICES: NDVI
+# So we saw the capability of satellite image to calculate vegetation indices and swa the difference between two images in time. 
+# But problem: one image ranging from 0 to 100 (maximum DVI would be NIR - red = 100 - 0 = 100) and one image ranging from 0 to 1000 (maximum DVI would be NIR - red = 1000 - 0 = 1000).
+# For this reason there is another index, NDVI = normalize different vegetation index. Same of DVI (NIR - red ) but also in denominator puts NIR + red.
+# ex: 100 - 0 / 100 + 0 = 1 ; 1000 - 0 / 1000 + 0 = 1.
+# With NDVI you can compare every image from different ranges.
+# It's always better to use NDVI instead on DVI, but if you have images from the same range you can use DVI.
 
-ndvi1992 = dvi1992 / (m1992[[1]]+m1992[[2]])
-ndvi2006 = dvi2006 / (m2006[[1]]+m2006[[2]])
+# Calcualte NDVI 1992 and 2006
+ndvi1992 = dvi1992 / (m1992[[1]] + m1992[[2]])
+ndvi2006 = dvi2006 / (m2006[[1]] + m2006[[2]])
 par(mfrow=c(1,2))
 plot(ndvi1992, col=cl)
 plot(ndvi2006, col=cl)
 
-# u can use viridis for colorblind people
+# VIRIDIS
+# you can use viridis for colorblind people
