@@ -74,7 +74,7 @@ sentstack <- c(b2, b3, b4, b8) # we stack them by considering them as elements o
 plot(sentstack, col=cl) # appare come plot ma è come se fossero sovrapposti, te li fa comunque vedere plottati, se scrivi su R sentstack ti dice in "sources" che ci sono
 
 # now we want to plot one layer
-dev.off() # we remove the mfrowù
+dev.off() # we remove the mfrow
 plot(sentstack[[1]], col=cl) # 1 because the first band we put was the number 2 (b2)
 plot(sentstack[[4]], col=cl) # 4 is the b8
 
