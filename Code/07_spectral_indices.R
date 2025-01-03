@@ -65,9 +65,9 @@ im.plotRGB(m2006, r=2,g=3, b=1)
 # Spectral signature (presentation "remote sensing"): it is a graph of how vegetation (healthy or stressed vegetation) reacts to light. 
 # In case of healthy plants: absorbs blue and red, reflects green, reflects a lot of NIR.
 # When we have several bands instead of just 4, we will see that there are pics different from one species to the other: each species reflects in a different manner (that's why it's called spetral signature, like a fingerprint).
-# In case of a healthy plant: in the NIR it's reflecting a lot, let's say 100. In  red 10. We can mount this information to make a single index, called DVI (different vegetation index). 
+# In case of a healthy plant: in the NIR it's reflecting a lot, let's say 100. In the red 10. We can mount this information to make a single index, called DVI (different vegetation index). 
 # DVI = NIR - red = 100 - 10 = 90 (DVI of the plant).
-# Imagine the plant is about to die, the phtosynthesis is going to stop (chloroplasts don't work anymore and don't absorb light), so the plant will not absorb anymore blue or red and reflectance will be higher.
+# Imagine the plant is about to die, the photosynthesis is going to stop (chloroplasts don't work anymore and don't absorb light), so the plant will not absorb anymore blue or red and reflectance will be higher.
 # So now NIR = 80, red = 20 -> DVI = NIR - red = 80 - 20 = 60.
 # So once the plant suffers (ex. for climate change), we will see a decrease in DVI.
 
