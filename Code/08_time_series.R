@@ -37,7 +37,7 @@ plot(gr[[1]]) # to plot one single layer, number from 1 to 4 depending which one
 par(mfrow=(c(1,2)))
 plot(gr[[1]])
 plot(gr[[4]])
-# low temperatures in 2000 almost everywhere, while in 2025 low temperatures are only present in a small amount at the center
+# low temperatures in 2000 almost everywhere, while in 2015 low temperatures are only present in a small amount at the center
 
 # Difference in temperature 
 difgr = gr[[1]] - gr[[4]]
