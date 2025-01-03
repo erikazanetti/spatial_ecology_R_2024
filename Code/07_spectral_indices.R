@@ -17,7 +17,7 @@ m2006 # in section name we can see there are 3 bands (matogrosso_lrg1/2/3)
 # what are these bands? This is an image coming out from another source of NASA data called Earth Observatory.
 # This image has been moved to Earth Observatory website to Visible Earth website.
 # here https://visibleearth.nasa.gov/images/35891/deforestation-in-mato-grosso-brazil we can see the (deforestation) history of this image.
-# They directly provide a false colour, in which the first band was the NIR. band 1 = NIR, band 2 = red, band 3 = green
+# They directly provide a false colour, in which the first band was the NIR. band 1 = NIR, band 2 = red, band 3 = green . (?)HOW DO WE KNOW THAT BAND 1 IS NIR, 2 IS RED AND 3 IS GREEN??
 
 # we can do RGB of matogrosso image
 im.plotRGB(m2006, r=1, g=2, b=3) # we can choose the band we want to see, even if we write here g=3 and b=2 nothing changes, the important thing is that r=1
@@ -45,7 +45,7 @@ par(mfrow=c(1,2))
 im.plotRGB(m1992, r=1, g=2, b=3)
 im.plotRGB(m2006, r=1, g=2, b=3)
 
-# exercise: make a multiframe with 6 images in paiirs with NIR on the same component
+# exercise: make a multiframe with 6 images in pairs with NIR on the same component
 # first row: m1992 and m2006 with r=1 (NIR on top of red)
 # second row: m1992 and m2006 with g=1 (NIR on top of green)
 # third row: m1992 and m2006 with b=1 (NIR on top of blue)
