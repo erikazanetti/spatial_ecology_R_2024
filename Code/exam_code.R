@@ -1,3 +1,10 @@
+# Satellite images of mangroves are useful for:
+# Ability to automatically identify conditions of mangroves that are healthy, disturbed, naturally recovering, or declining.
+# Ability to predict mangrove resilience, or capability to recover to pre-disturbance conditions.
+# Mangroves in Florida are under increased stress due to more intense and frequent hurricanes.
+
+
+
 # Step 1 : Install required packages if not already installed
 install.packages("terra") # For handling raster data (e.g., satellite images)
 
