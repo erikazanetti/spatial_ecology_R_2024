@@ -67,7 +67,7 @@ m2017c <- im.classify(m2017,num_clusters=6)
 bands2017c <- im.classify(bands2017,num_clusters=6)
 
 # Since im.classify() assigns class numbers randomly, I need to manually map the class numbers to meaningful names based on their frequency or your domain knowledge.
-class_names <- c("Cloudes", "Disturbed", "Healthy", "Fresh water", "Ocean", "Bo")
+class_names <- c("Cloudes", "Disturbed", "Healthy", "Water bodies", "Ocean", "Bo")
 class_colors <- c("gray", "green", "blue", "lightgreen", "darkblue", "yellow") # da cambiare perché sono brutti
 plot(bands2017c, col=class_colors, main="Classified Image")
 
