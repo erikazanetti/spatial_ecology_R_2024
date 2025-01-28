@@ -4,8 +4,7 @@
 # Mangroves in Florida are under increased stress due to more intense and frequent hurricanes.
 
 
-
-# Step 1 : Install required packages if not already installed
+# Install required packages if not already installed
 install.packages("terra") # For handling raster data (e.g., satellite images)
 install.packages("devtools") # For managing R packages
 install.packages("viridis")
@@ -61,21 +60,47 @@ r2018 <- m2018[[1]]
 g2018 <- m2018[[2]] 
 b2018 <- m2018[[3]] 
 nir2018 <- m2018f[[1]]
+bands2018 <- c(r2018, g2018, b2018, nir2018)
 
 #
-m2017c <- im.classify(m2017,num_clusters=6)
-bands2017c <- im.classify(bands2017,num_clusters=6)
+bands2017c <- im.classify(bands2017,num_clusters=5)
+bands2018c <- im.classify(bands2018,num_clusters=5)
 
 # Since im.classify() assigns class numbers randomly, I need to manually map the class numbers to meaningful names based on their frequency or your domain knowledge.
-class_names <- c("Cloudes", "Disturbed", "Healthy", "Water bodies", "Ocean", "Bo")
-class_colors <- c("gray", "green", "blue", "lightgreen", "darkblue", "yellow") # da cambiare perché sono brutti
-plot(bands2017c, col=class_colors, main="Classified Image")
+class_names <- c("Cloudes", "Ocean", "Water bodies", "Dense veg.", "Less dense veg.")
+class_colors <- c("Clouds" = "#21908CFF",    # Azzurro per le nuvole
+                  "Ocean" = "#440154FF",  # Viola per l'area disturbata
+                  "Water bodies" = "#5DC863FF",    # Verde per l'area sana
+                  "Dense veg." = "#3B528BFF",      # Blu per l'oceano
+                  "Less dense veg." = "#FDE725FF" # Giallo per i corpi idrici
+)
 
-# Add a legend to make things clear
+# da cambiare perché sono brutti
+par(mfrow=c(1,2))
+plot(bands2017c, col=class_colors, main="Classified Image 2017")
+plot(bands2018c, col=class_colors, main="Classified Image 2018")
+
+# Add a legend to make things clear  DA SISTEMARE IL POSIZIONAMENTO DELLA LEGENDA
 legend("topright", 
         legend = class_names,     # Class names (instead of numbers)
         fill = class_colors,      # Colors corresponding to classes
         title = "Classes",        # Title for the legend
         cex = 0.6,                # Adjust size of the legend text
         xpd = TRUE,               # Allow the legend to go outside the plot area, if it's not what you want remove this line
-        inset = c(-0.1, 0.08))    # Adjust position of the legend
+        inset = c(0, 0.08))       # Adjust position of the legend
+
+dev.off()
+
+# Frequencies
+f17 <- freq(bands2017c)
+tot17 <- ncell(bands2017c)
+
+f18 <- freq(bands2018c)
+tot18 <- ncell(bands2018c)
+
+prop17 = f17/tot17
+perc17 = prop17*100
+prop18 = f18/tot18
+perc18 = prop18*100
+
+
