@@ -50,7 +50,7 @@ f1992 # we can see the number of pixels per each class
 # Let's calculate percentage (because it's difficult to think about that big amount of pixels)
 # % is calculated by doing the frequency multiplied by 100 and divided by the total number of pixels
 # first of all we need the total
-tot1992 <- ncell(m1992) #ncell() is a function for number of cells
+tot1992 <- ncell(m1992c) #ncell() is a function for number of cells
 tot1992 # is 1800000
 p1992 <- f1992 * 100 / tot1992 # we can also use "=" instead of "<-"
 # percentages 1992
