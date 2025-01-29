@@ -40,7 +40,7 @@ par(mfrow=c(2,2))
 plot(m2017, main="True color 2017")
 plot(m2017f, main="False color 2017")
 plot(m2018, main="True color 2018")
-plot(m2018f, "False color 2018")
+plot(m2018f, main="False color 2018")
 
 dev.off()
 
@@ -63,7 +63,7 @@ bandsm2018c <- im.classify(bandsm2018,num_clusters=5)
 plot(bandsm2018c)
 
 cl <- colorRampPalette(c("#21908CFF","#440154FF","#5DC863FF","#3B528BFF","#FDE725FF"))(100) 
-par(mfrow=c(1,2)) 
+par(mfrow=c(1,2))
 plot(bandsm2017c, col=cl, main="Classified Image 2017") 
 plot(bandsm2018c, col=cl, main="Classified Image 2018")
 
@@ -107,9 +107,15 @@ tot17 <- ncell(bandsm2017c)
 f18 <- freq(bandsm2018c)
 tot18 <- ncell(bandsm2018c)
 
-prop17 = f17/tot17
-perc17 = prop17*100
-prop18 = f18/tot18
-perc18 = prop18*100
+perc17 = f17 * 100 / tot17
+# ocean = 29.86
+# water bodies = 21.41
+# dense vegetation = 25.09
+# less dense vegetation = 19.31
+# cloudes = 4.31
+
+perc18 = f18 * 100 / tot18
+# vegetated = 29.34
+# less dense vegetation = 25.16
 
 
