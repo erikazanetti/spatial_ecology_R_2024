@@ -1,4 +1,4 @@
-# R PROJECT FOCUSING ON TEMPORAL ANALYSIS OF DEFORESTATION IN AN AREA IN RONDÔNIA (~4100 m²)
+# R PROJECT FOCUSING ON TEMPORAL ANALYSIS OF DEFORESTATION IN AN AREA IN RONDÔNIA (~4100 km²)
 
 # Install required packages if not already installed
 install.packages(c("terra", "ggplot2", "patchwork", "viridis", "devtools"))
