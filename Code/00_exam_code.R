@@ -60,7 +60,7 @@ plot(bandsr23c, col=clv)
 
 dev.off()
 
-# Calculate the frequency and percentage of each class (cleared fores and original forest) for both 2017 and 2023
+# Calculate the frequency and percentage of each class (cleared forest and original forest) for both 2017 and 2023
 f17 <- freq(bandsr17c)
 tot17 <- ncell(bandsr17c)
 
