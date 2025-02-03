@@ -155,5 +155,5 @@ pcsd23 <- focal(pc23comb, matrix(1/9, 3, 3), fun=sd)
 
 # Visualizing the results in a multiframe
 par(mfrow=c(1,2))
-plot(pcsd17, col=clv)
-plot(pcsd23, col=clv)
+plot(pcsd17, col=clv, main="Spatial variability 2017")
+plot(pcsd23, col=clv, main="Spatial variability 2017")
