@@ -102,17 +102,19 @@ g1 + g2
 cl <- colorRampPalette(c("black","white","red"))(100)
 dvi17 = bandsr17[[4]] - bandsr17[[1]]
 dvi23 = bandsr23[[4]] - bandsr23[[1]]
-par(mfrow=c(1,2))
-plot(dvi17, col=cl)
-plot(dvi23, col=cl)
+par(mfrow=c(2,2))
+plot(dvi17, col=cl, main="DVI 2017")
+plot(dvi23, col=cl, main="DVI 2023")
+plot(dvi17, col=clv, main="DVI 2017 (viridis)")
+plot(dvi23, col=clv, main="DVI 2023 (viridis)")
 
 ndvi17 = dvi17 / (bandsr17[[4]] + bandsr17[[1]])
 ndvi23 = dvi23 / (bandsr23[[4]] + bandsr23[[1]])
 par(mfrow=c(2,2))
-plot(ndvi17,col=cl)
-plot(ndvi17,col=clv)
-plot(ndvi23,col=cl)
-plot(ndvi23,col=clv)
+plot(ndvi17, col=cl)
+plot(ndvi17, col=clv)
+plot(ndvi23, col=cl)
+plot(ndvi23, col=clv)
 
 dev.off()
 
