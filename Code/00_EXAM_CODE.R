@@ -88,7 +88,7 @@ g1 <- ggplot(data, aes(x=classes, y=year_2017, fill=classes)) + geom_bar(stat="i
 g2 <- ggplot(data, aes(x=classes, y=year_2023, fill=classes)) + geom_bar(stat="identity") +  scale_fill_viridis_d(option = "D") + ylim(c(0, 100)) + labs(title = "Forest Classification in 2023", y = "Percentage", x = "Classes")
 # aes() -> to define the aethetics of the plot
 # x=classes -> for the x-axis will to display the classes ("Cleared" and "Original")
-# y=year_2017 -> for the y-axis to represent the values from the relativev year column in the dataset
+# y=year_2017 -> for the y-axis to represent the values from the relative year column in the dataset
 # fill=classes -> so the bars will be filled with colors based on the classes variable
 # geom_bar(stat="identity") -> geom_bar() is used to create a bar graph and stat=identity specifies the data are used just us they are
 # scale_fill_viridis_d(option = "D") -> scale_fill_viridis_d() applies Viridis palette when your variable is discrete (i.e., categorical data), option ="D" is the default color palette
