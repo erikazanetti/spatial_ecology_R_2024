@@ -119,7 +119,7 @@ plot(ndvi23, col=clv, main="NDVI 2023 (viridis)")
 dev.off()
 
 # NDVI difference
-difNDVI = ndvi17 - ndvi23
+difNDVI = ndvi23 - ndvi17
 par(mfrow=c(1,2))
 plot(difNDVI,col=cl) # red = vegetation improved; black = vegetation decreased
 plot(difNDVI,col=clv)
