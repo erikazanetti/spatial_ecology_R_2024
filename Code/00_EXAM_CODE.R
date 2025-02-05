@@ -15,7 +15,7 @@ install_github("ducciorocchini/imageRy")
 library(imageRy) # For manipulating raster images
 
 # Set the working directory
-setwd("C:/Users/Erika Zanetti/OneDrive - Alma Mater Studiorum Università di Bologna/spatial ecology in r/nuovo proj/2017")
+setwd("C:/Users/Erika Zanetti/OneDrive - UniBo/spatial ecology in r")
 
 # Import images for the years 2017 and 2023, while assigning them to an object
 r17 <- rast("2017-06-28-00_00_2017-06-28-23_59_Sentinel-2_L2A_True_color.jpg") # True color (bands R, G and B)
