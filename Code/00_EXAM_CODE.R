@@ -55,8 +55,8 @@ plot(bandsr23c)
 # Plot the classified images of 2017 and 2023 using colors from the Viridis palette
 clv <- viridis(100)
 par(mfrow=c(1,2)) 
-plot(bandsr17c, col=clv)
-plot(bandsr23c, col=clv)
+plot(bandsr17c, col=clv, main="2017")
+plot(bandsr23c, col=clv, main="2023")
 
 dev.off()
 
@@ -136,8 +136,8 @@ pca17 <- im.pca(bandsr17)
 tot17 <- sum(36.612812, 31.971524, 4.963559, 3.076220)
 c(36.612812*100/tot17 # 47.78236 % of variability explained by the first axis
   31.971524*100/tot17 # 41.72515 % of variability explained by the second axis
-  4.963559*100/tot17 # 6.477803 % of probability explained by the third axis
-  3.076220*100/tot17 # 4.014689 % of probability explained by the fourth axis
+  4.963559*100/tot17 # 6.477803 % of variability explained by the third axis
+  3.076220*100/tot17 # 4.014689 % of variability explained by the fourth axis
   )
 pc17comb <- pca17[[1]] + pca17[[2]] # Combine PC1 and PC2, because together they explain over 89% of the variability
 pcsd17 <- focal(pc17comb, matrix(1/9, 3, 3), fun=sd)
@@ -147,8 +147,8 @@ pca23 <- im.pca(bandsr23)
 tot23 <- sum(36.612812, 31.971524, 4.963559, 3.076220)
 c(44.297913*100/tot23 # 57.81197 % of variability explained by the first axis
   20.766979*100/tot23 # 27.10241 % of variability explained by the second axis
-  4.477552*100/tot23 # 5.843529 % of probability explained by the third axis
-  3.009718*100/tot23 # 3.927899 % of probability explained by the fourth axis
+  4.477552*100/tot23 # 5.843529 % of variability explained by the third axis
+  3.009718*100/tot23 # 3.927899 % of variability explained by the fourth axis
   )
 pc23comb <- pca23[[1]] + pca23[[2]] # Combine PC1 and PC2, because together they explain over 85% of the variability
 pcsd23 <- focal(pc23comb, matrix(1/9, 3, 3), fun=sd)
