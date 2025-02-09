@@ -133,24 +133,24 @@ dev.off()
 
 # PCA Analysis for spatial variability
 pca17 <- im.pca(bandsr17)
-tot17 <- sum(36.612812, 31.971524, 4.963559, 3.076220)
-c(36.612812*100/tot17 # 47.78236 % of variability explained by the first axis
-  31.971524*100/tot17 # 41.72515 % of variability explained by the second axis
-  4.963559*100/tot17 # 6.477803 % of variability explained by the third axis
-  3.076220*100/tot17 # 4.014689 % of variability explained by the fourth axis
+tot17 <- sum(42.836081, 29.757412, 4.433270, 2.734848)
+c(42.836081*100/tot17 # 54 % of variability explained by the first axis
+  29.757412*100/tot17 # 37 % of variability explained by the second axis
+  4.433270*100/tot17 # 6 % of variability explained by the third axis
+  2.734848*100/tot17 # 3 % of variability explained by the fourth axis
   )
-pc17comb <- pca17[[1]] + pca17[[2]] # Combine PC1 and PC2, because together they explain over 89% of the variability
+pc17comb <- pca17[[1]] + pca17[[2]] # Combine PC1 and PC2, because together they explain about 90 % of the variability
 pcsd17 <- focal(pc17comb, matrix(1/9, 3, 3), fun=sd)
 
 # Do the same thing for 2023
 pca23 <- im.pca(bandsr23)
-tot23 <- sum(36.612812, 31.971524, 4.963559, 3.076220)
-c(44.297913*100/tot23 # 57.81197 % of variability explained by the first axis
-  20.766979*100/tot23 # 27.10241 % of variability explained by the second axis
-  4.477552*100/tot23 # 5.843529 % of variability explained by the third axis
-  3.009718*100/tot23 # 3.927899 % of variability explained by the fourth axis
+tot23 <- sum(42.362755, 31.215772, 5.066246, 3.076220)
+c(42.362755*100/tot23 # 52 % of variability explained by the first axis
+  31.215772*100/tot23 # 38 % of variability explained by the second axis
+  5.066246*100/tot23 # 6 % of variability explained by the third axis
+  3.076220*100/tot23 # 4.927899 % of variability explained by the fourth axis
   )
-pc23comb <- pca23[[1]] + pca23[[2]] # Combine PC1 and PC2, because together they explain over 85% of the variability
+pc23comb <- pca23[[1]] + pca23[[2]] # Combine PC1 and PC2, because together they explain 90% of the variability
 pcsd23 <- focal(pc23comb, matrix(1/9, 3, 3), fun=sd)
 
 # Visualizing the results in a multiframe
