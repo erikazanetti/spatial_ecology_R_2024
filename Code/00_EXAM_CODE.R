@@ -148,7 +148,7 @@ tot23 <- sum(42.362755, 31.215772, 5.066246, 3.076220)
 c(42.362755*100/tot23 # 52 % of variability explained by the first axis
   31.215772*100/tot23 # 38 % of variability explained by the second axis
   5.066246*100/tot23 # 6 % of variability explained by the third axis
-  3.076220*100/tot23 # 4.927899 % of variability explained by the fourth axis
+  3.076220*100/tot23 # 4 % of variability explained by the fourth axis
   )
 pc23comb <- pca23[[1]] + pca23[[2]] # Combine PC1 and PC2, because together they explain 90% of the variability
 pcsd23 <- focal(pc23comb, matrix(1/9, 3, 3), fun=sd)
