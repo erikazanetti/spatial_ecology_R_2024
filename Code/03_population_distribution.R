@@ -14,36 +14,14 @@ file <- system.file("external/species.shp", package="sdm")
 # species.shp is related to data for species, shp means "shapefile" that is a type of file originally from a company
 
 # Convert the shapefile to a format R can use
-rana <- vect(file)  # Convert .shp file to a SpatVector object
-rana  # Display information about the dataset
-
-# Extract and plot occurrence data
-rana$Occurrence  
-plot(rana)  # Plot all data points (presence = 1, absence = 0)
-
-# Selecting presences (Occurrence = 1)
-pres <- rana[rana$Occurrence == 1]  
-pres$Occurrence  # Verify only presence points remain
-
-
-# let's use the data with a function to traslate .shp to type of file that R can use. spatvector is the one R can use, the function is called vect
 rana <- vect(file) # file is the object we named before instead of writing system.file etc...
 rana # Display information about the dataset
 # This includes details such as coordinate system (WGS84, UTM zone 30N)
 # and species occurrence data (1 = present, 0 = absent)
 
 # Extract and plot occurrence data
-rana$Occurrence 
+rana$Occurrence  
 plot(rana)  # Plot all data points (presence = 1, absence = 0)
-
-# Selecting presences
-pres <- rana[rana$Occurrence == 1]  # Select only points where the species is present
-pres$Occurrence  # Verify only presence points remain
-
-# Plot presence and all data points side by side
-par(mfrow=c(1,2))  
-plot(rana)  # All data points
-plot(pres)  # Only presences
 
 # Selecting presences
 pres <- rana[rana$Occurrence==1] 
@@ -51,6 +29,11 @@ pres <- rana[rana$Occurrence==1]
 # Unlike SQL, which ends statements with a ';', R does not require it.
 pres
 pres$Occurrence # and in fact now all occurrences are 1
+
+# Plot presence and all data points side by side
+par(mfrow=c(1,2))  
+plot(rana)  # All data points
+plot(pres)  # Only presences
 
 dev.off()
 
