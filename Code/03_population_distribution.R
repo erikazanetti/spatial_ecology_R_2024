@@ -45,7 +45,6 @@ par(mfrow=c(1,2))
 plot(rana)  # All data points
 plot(pres)  # Only presences
 
-
 # Selecting presences
 pres <- rana[rana$Occurrence==1] 
 # In SQL-like query languages, the equality operator is written as '=='
