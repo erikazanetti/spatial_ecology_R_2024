@@ -1,27 +1,29 @@
-# External data
+# Importing External Data into R
 
-# until now we have used data that were already inside packages
-# now we want to import data from outside R
-
-# go to site earth observatory, home, search for image, scotland, click on scotland and download (jpeg), save it (right click)
-# in the code we are explaining to R that we are going to use the photo, setting the working folder
-# right click on the file where you put it, see properties, copy the path and paste it in the code, the path we see in the properties has back slash "\", the real path is with "//" and we have to change all the slashes and remember the quotes ""
+# Until now, we have used data from R packages.
+# Now we will import external data, such as images downloaded from Earth Observatory.
 
 library(terra)
 
-# set the working directory based on your path:
-# setwd("yourpath")
-# Windows users: C:\\path\Downloads -> C://path/Downloads
-# My own:
+# Set the working directory (modify based on your file location)
+# Windows users: Change backslashes to double forward slashes (C:\path\Downloads -> C://path/Downloads)
 setwd("C:/Users/Erika Zanetti/Downloads")
-getwd() # getwd = getworkingdirectory, to see if i gave the right directory
-scotland <- rast("scotland_outerhebrides_oli_20240918_lrg.jpg")  # rast() is the function to import the data in terra
-# a warning will say unkown extent because the file has not been georeferenced, but there is no problem
+getwd()  # Verify the correct working directory
 
+# Import the Scotland image (JPEG file)
+scotland <- rast("scotland_outerhebrides_oli_20240918_lrg.jpg")  # Import raster data
+
+# Warning: Unknown extent message appears because the file lacks georeferencing, but it does not affect visualization
+
+# Plot the RGB composite of the Scotland image
 plotRGB(scotland, r=1, g=2, b=3)
-plot(scotland) # same of plotRGB to see the picture on R
 
-# Exercise: Download the second image from the same site and import it in R
-setwd("C:/Users/Erika Zanetti/Downloads")
-lakegarda <- rast("ISS053-E-136542_lrg.jpg")
+# Alternative way to visualize the image
+plot(scotland)  # Displays the image similarly to plotRGB()
+
+# Exercise: Download another image from the same site and import it
+setwd("C:/Users/Erika Zanetti/Downloads")  # Ensure correct directory
+lakegarda <- rast("ISS053-E-136542_lrg.jpg")  # Import the second image
+
+# Plot the RGB composite of the Lake Garda image
 plotRGB(lakegarda, r=1, g=2, b=3)
