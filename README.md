@@ -1,9 +1,7 @@
 # Spatial Ecology in R 2024
-This repo is going to collect the whole code for the course by Duccio Rocchini
+This repo is going to collect the whole code for the course Spatial Ecology in R (UniBo)
 
 The course is ranging from September 2024 to January 2025
-
-> Additional lectures are coming out in the morning - stay tuned!
 
 ## Language used
 The whole course will be based on R
