@@ -1,27 +1,34 @@
-# in the previous case we used the NIR to measure variability, but in some cases other bands are better
-# how to chose the best band? using multivariate analysis, where we compact all data in few axis. the first axes has the highest variability.
-# see picture taken of the blackboard
-# so we can pass from a multisystem of b1+b2 to just a system with a single band which is the principal component
-# since the standard deviation can be calculated only with a single band, instead of using NIR, we can use PC1
+# Using Principal Component Analysis (PCA) to Measure Variability
+
+# Instead of using a single band like NIR, PCA helps compact all bands into a single component (PC1),
+# which represents the highest variability in the dataset.
+
 library(imageRy)
 library(terra)
+
+# List available datasets
 im.list()
+
+# Import Sentinel satellite image
 sent <- im.import("sentinel.png")
 
-pairs(sent) # to see the correlation amongst all of the bands (of sentinel image)
-# for example the band 2 and the band 2 are really correlated (0.98), while the NIR (band 1) is not correlated or less correlated with other bands
-# we can take all these systems and compact them in one pca
+# Analyze correlation between bands
+pairs(sent)  # Displays correlation matrix among bands
 
-sentpc <- im.pca(sent) # there is the variability explained by the different components (it is called percentage of variance)
-plot(sentpc) # because the sentpc is the principal component
-# the first pc is that with highest variability (might explain 80% of the variability)
-sentpc
-pc1 <- sentpc[[1]] # extracting the first principal component (PC1) from sentpc
+# Perform Principal Component Analysis (PCA)
+sentpc <- im.pca(sent)  # Computes PCA from the image bands
+
+# Plot the principal components
+plot(sentpc)  # Visualizing PCA components and explained variance
+
+# Extract the first principal component (PC1), which has the highest variability
+pc1 <- sentpc[[1]]  # PC1 captures the most variance
+
+# Apply a moving window standard deviation filter to PC1
 pc1sd <- focal(pc1, matrix(1/9, 3, 3), fun=sd)
-plot(pc1sd)
+plot(pc1sd)  # Visualizes variability based on PC1
 
 # Take-home message:
-# - measure variability through moving windows images
-# - we can either chose one variable to measure variability (for ex. NIR) or we can do multivariate analysis to extract the PC1 and use it to measure variability
-# PCA helps combine these multiple bands into principal components (PCs), and PC1 (the first principal component) captures the most significant variation across all the bands. 
-# This means that PC1 represents the combined information from all the bands, focusing on the most important features in the image.
+# - Variability can be measured through moving window analysis.
+# - Instead of selecting one specific band (e.g., NIR), PCA allows us to compact multiple bands into PCs.
+# - PC1 represents the most significant variation across all bands, making it useful for variability measurement.
