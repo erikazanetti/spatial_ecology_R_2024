@@ -45,10 +45,3 @@ overlapPlot(tigertime, macaquetime)  # Visualizes time overlap between tigers an
 summary(macaque)  # Summary of macaque observations
 nomacaque <- kerinci[kerinci$Sps != "macaque",]  # Select all non-macaque records
 summary(nomacaque)  # Summary of dataset excluding macaques
-
-#----- 
-macaque <- kerinci[kerinci$Sps=="macaque",] 
-summary(macaque)
-# "==" means equal, and "!=" means not equal (cioè punto esclamativo assieme a uguale)
-nomacaque <- kerinci[kerinci$Sps!="macaque",]
-summary(nomacaque)
